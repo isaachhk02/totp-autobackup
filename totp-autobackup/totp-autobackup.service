@@ -5,7 +5,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/totp-autobackup --run
+ExecStart=/usr/bin/totp-autobackup --run
 
 [Install]
 WantedBy=multi-user.target

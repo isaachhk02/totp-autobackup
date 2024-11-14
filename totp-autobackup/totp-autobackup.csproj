@@ -15,6 +15,9 @@
     <Content Include="totp-autobackup.service" CopyToPublishDirectory="PreserveNewest" LinuxFileMode="1755">
       <LinuxPath>/etc/systemd/system/totp-autobackup.service</LinuxPath>
     </Content>
+    <Content Include="totp-autobackup.timer" CopyToPublishDirectory="PreserveNewest" LinuxFileMode="1755">
+      <LinuxPath>/etc/systemd/system/totp-autobackup.timer</LinuxPath>
+    </Content>
     </ItemGroup>
 
 

@@ -1,0 +1,9 @@
+[Unit]
+Description=Totp-autobackup timer
+
+[Timer]
+AccuracySec=10s
+Unit=totp-autobackup.service
+
+[Install]
+WantedBy=default.target
