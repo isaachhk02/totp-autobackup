@@ -9,7 +9,7 @@ Fedora:
 
 Debian:
 
-`sudo apt install ./totp-autobackup.1.0.0.rpm`
+`sudo apt install ./totp-autobackup.1.0.0.deb`
 
 # Configuration
 
