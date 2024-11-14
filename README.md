@@ -3,6 +3,12 @@
 
 # How to install
 
+# WARNING: Make sure installed totp-cli in 
+`$HOME/go/bin` and added to PATH
+
+For more information see:
+https://github.com/yitsushi/totp-cli
+
 Fedora:
 
 `sudo dnf install ./totp-autobackup.1.0.0.rpm`
