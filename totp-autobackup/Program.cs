@@ -50,7 +50,7 @@ class Program
                 {
                     ProcessStartInfo cmd = new ProcessStartInfo
                     {
-                        Arguments = "/bin/bash -c 'systemctl enable --now totp-autobackup.service'",
+                        Arguments = "/bin/bash -c systemctl enable --now totp-autobackup.service",
                         CreateNoWindow = false,
                         FileName = "/usr/bin/sudo",
                         UserName = Environment.GetEnvironmentVariable("USER"),
@@ -69,7 +69,7 @@ class Program
             {
                 ProcessStartInfo cmd = new ProcessStartInfo
                 {
-                    Arguments = "-c 'systemctl enable --now totp-autobackup.service'",
+                    Arguments = "-c systemctl enable --now totp-autobackup.service",
                     CreateNoWindow = false,
                     FileName = "/bin/bash",
                     UserName = Environment.GetEnvironmentVariable("USER"),
@@ -84,7 +84,7 @@ class Program
                 {
                     ProcessStartInfo cmd = new ProcessStartInfo
                     {
-                        Arguments = "/bin/bash -c 'systemctl disable --now totp-autobackup.service'",
+                        Arguments = "/bin/bash -c systemctl disable --now totp-autobackup.service",
                         CreateNoWindow = false,
                         FileName = "/usr/bin/sudo",
                         UserName = Environment.GetEnvironmentVariable("USER"),
@@ -97,7 +97,7 @@ class Program
                 {
                     ProcessStartInfo cmd = new ProcessStartInfo
                     {
-                        Arguments = "-c 'systemctl disable --now totp-autobackup.service'",
+                        Arguments = "-c systemctl disable --now totp-autobackup.service",
                         CreateNoWindow = false,
                         FileName = "/bin/bash",
                         UserName = Environment.GetEnvironmentVariable("USER"),
@@ -108,35 +108,19 @@ class Program
 
             if (args[0] == "--run")
             {
-                
+                autobackup backup = new();
                 if (!File.Exists(outputDir)  || !File.Exists(minSel))
                     File.Create(outputDir); ; File.Create(minSel);
                 try
                 {
                     outputDir = File.ReadAllText(Environment.GetEnvironmentVariable("HOME") + "/.config/totp-autobackup/dir");
                     minSel = File.ReadAllText(Environment.GetEnvironmentVariable("HOME") + "/.config/totp-autobackup/minute");
+                    
+                    backup.Backup(outputDir,minSel);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                }
-                
-                
-                int minute = Int32.Parse(minSel);
-                int min = DateTime.Now.Minute + minute;
-                if (min >= DateTime.Now.Minute)
-                {
-                    string date = DateTime.Now.Date.ToShortTimeString();
-                    ProcessStartInfo cmd = new ProcessStartInfo
-                    {
-                        Arguments = Environment.GetEnvironmentVariable("HOME") + "/go/bin/totp-cli" + " dump > " + outputDir + "/backup" + date + ".json",
-                        CreateNoWindow = false,
-                        FileName = "/usr/bin/sudo",
-                        UserName = Environment.GetEnvironmentVariable("USER"),
-                        WindowStyle = ProcessWindowStyle.Normal,
-                        UseShellExecute = true,
-                    };
-                    Process.Start(cmd);
                 }
             }
         }
