@@ -3,8 +3,7 @@
 
 # How to install
 
-# WARNING: Make sure installed totp-cli in 
-`$HOME/go/bin` and added to PATH
+# WARNING: Make sure totp-cli it's installed
 
 For more information see:
 https://github.com/yitsushi/totp-cli
