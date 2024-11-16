@@ -19,10 +19,11 @@ Debian:
 
 # Configuration
 
-If you run totp-autobackup for first time the program creates the configuration automatically in `/home/$USER/.config/totp-autobackup/minute` and `/home/$USER/.config/totp-autobackup/dir`
+If you run totp-autobackup for first time the program creates the configuration automatically in `/home/$USER/.config/totp-autobackup/minute` `/home/$USER/.config/totp-autobackup/dir` and `/home/$USER/.config/totp-autobackup/password`
 This files corresponds the configuration files like:
 `dir`: It's the output directory for save the backups
 `minute`: Every few minutes the backups will be saved.
+`password`: Your password you writed in totp-cli for export the backups this write the password automatically for export the backups
 
 In dir file open with text editor and write the path you want for save the backups.
 In minutes: Set every x minute to save backups.
