@@ -13,10 +13,10 @@
     <ItemGroup>
       <Folder Include="Properties\" />
     <Content Include="totp-autobackup.service" CopyToPublishDirectory="PreserveNewest" LinuxFileMode="1755">
-      <LinuxPath>$HOME/.config/systemd/user/totp-autobackup.service</LinuxPath>
+      <LinuxPath>$(HOME)/.config/systemd/user/totp-autobackup.service</LinuxPath>
     </Content>
     <Content Include="totp-autobackup.timer" CopyToPublishDirectory="PreserveNewest" LinuxFileMode="1755">
-      <LinuxPath>$HOME/.config/systemd/user/totp-autobackup.timer</LinuxPath>
+      <LinuxPath>$(HOME)/.config/systemd/user/totp-autobackup.timer</LinuxPath>
     </Content>
     </ItemGroup>
 
