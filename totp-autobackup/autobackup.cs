@@ -26,34 +26,12 @@ public class Autobackup
 
         if (strings[0] == "--enable")
         {
-            if (Environment.GetEnvironmentVariable("EUID") != "0")
-            {
-                if (File.Exists("/usr/lib/systemd/systemd"))
-                {
-                    Process.Start("/usr/bin/sudo", "systemctl enable --now totp-autobackup.service");
-                }
-                else
-                {
-                    Console.WriteLine("Eh ahi la importancia de systemd :p");
-                }
-
-            }
-            else
-            {
-                Process.Start("/usr/bin/sudo", "systemctl disable --now totp-autobackup.service");
-            }
+            Process.Start("/usr/bin/systemctl", "--user enable --now totp-autobackup.service");
         }
 
         if (strings[0] == "--disable")
-        {
-            if (Environment.GetEnvironmentVariable("EUID") != "0")
-            {
-                Process.Start("/usr/bin/sudo", "systemctl disable --now totp-autobackup.service");
-            }
-            else
-            {
-                Process.Start("/usr/bin/sudo", "systemctl disable --now totp-autobackup.service");
-            }
+        { 
+            Process.Start("/usr/bin/systemctl", "--user disable --now totp-autobackup.service");
         }
 
         if (strings[0] == "--run")
